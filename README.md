@@ -88,15 +88,15 @@ JAVA_HOME="D:/Android/Android Studio/jbr" ./gradlew assembleDebug
 签名信息从项目根目录的 `keystore.properties` 读取：
 
 ```properties
-storeFile=release.jks
+storeFile=path/to/your.jks   # 可写绝对路径，如 E:/Android/as_key.jks
 storePassword=******
-keyAlias=wanandroid
+keyAlias=your_alias
 keyPassword=******
 ```
 
 `keystore.properties` 与 `*.jks` 都在 `.gitignore` 中，**不会进仓库**。文件不存在时（例如刚 clone 下来），Release 构建会自动回退到 debug 签名，保证 `assembleRelease` 依然能产出可安装的 APK。
 
-> 自己重新发版时请换一套新密钥，并把 keystore 与口令备份好——签名变了，老版本就无法覆盖升级。
+> 已发布的 v1.0 使用作者的个人密钥签名。若你要自己分发，请换一套新密钥并妥善备份——签名一变，旧版本就无法覆盖升级，必须卸载重装。
 
 ## 接口说明
 
